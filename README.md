@@ -1,5 +1,11 @@
 # Lets build a Client Management API using GraphQL
 
+### Backend (Node, Express, GraphQL, MongoDB)
+- `npm install`
+- `npm run dev`
+
+### Frontend (React, ApolloClient, Tailwind CSS)
+- `cd client`
 - `npm install`
 - `npm run dev`
 
