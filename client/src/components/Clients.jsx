@@ -1,7 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { GET_CLIENTS } from '../queries/client.queries';
 import ClientItem from './ClientItem';
-import AddClient from './AddClient';
 
 const Clients = () => {
     const { loading, error, data } = useQuery(GET_CLIENTS);
@@ -11,7 +10,6 @@ const Clients = () => {
             <div className="container mx-auto px-6">
                 <div className="flex justify-between">
                     <h3 className="font-bold text-xl">Clients</h3>
-                    <AddClient />
                 </div>
                 
                 { loading && <p className="my-4">Loading...</p> }

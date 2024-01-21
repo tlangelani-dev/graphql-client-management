@@ -1,5 +1,8 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import Clients from './components/Clients';
+import Home from './pages/Home';
+import ProjectDetails from './pages/ProjectDetails';
+import NotFound from './pages/NotFound';
 import {
     ApolloProvider,
     ApolloClient,
@@ -33,10 +36,16 @@ const client = new ApolloClient({
 const App = () => {
     return (
         <ApolloProvider client={client}>
-            <div>
-                <Header />
-                <Clients />
-            </div>
+            <Router>
+                <div>
+                    <Header />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/projects/:id" element={<ProjectDetails />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </div>
+            </Router>
         </ApolloProvider>
     )
 }
