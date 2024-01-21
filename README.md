@@ -30,4 +30,26 @@ mutation {
     phone
   }
 }
+
+// get projects with related client
+{
+  projects {
+    name
+    status
+    client {
+      name
+      email
+    }
+  }
+}
+
+// create project
+mutation {
+  createProject(name: "Website", description: "This is a cool project", status: new, clientId: "65acb0d607436fa51ec1dfc0") {
+    id
+    name
+    description
+    status
+  }
+}
 ```
