@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client'
 import { GET_PROJECT } from '../queries/project.queries';
 import { Card } from 'flowbite-react';
 import { FaIdBadge, FaEnvelope, FaPhone } from 'react-icons/fa';
+import DeleteProjectButton from '../components/DeleteProjectButton';
 
 const ProjectDetails = () => {
     const { id } = useParams();
@@ -21,8 +22,8 @@ const ProjectDetails = () => {
 
             {!loading && !error && (
                 <div className="bg-gray-700 rounded text-white p-6">
-                    <h1 className="font-bold flex justify-between">
-                        <span>{data.project.name}</span>
+                    <h1 className="flex justify-between">
+                        <span className="font-bold text-2xl">{data.project.name}</span>
                         <Link className="bg-gray-100 text-gray-800 rounded py-1 px-3 mb-4 inline-block" to="/">Back</Link>
                     </h1>
                     <p>{data.project.description}</p>
@@ -52,6 +53,8 @@ const ProjectDetails = () => {
                             </Card>
                         </div>
                     )}
+
+                    <DeleteProjectButton projectId={data.project.id} />
                 </div>
             )}
         </div>
